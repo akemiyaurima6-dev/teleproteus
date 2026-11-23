@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Proteus - Ingeniería de Telecomunicaciones</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body id="inicio">
+
+    <nav class="indice" aria-label="Índice de la guía">
+        <div class="indice-contenedor">
+            <span class="indice-titulo">Índice de la Guía:</span>
+            <ul class="indice-links">
+                <li><a href="#inicio" class="nav-link activo">Introducción</a></li>
+                <li><a href="#paso-1" class="nav-link">1. Instalación</a></li>
+                <li><a href="#paso-2" class="nav-link">2. Proyecto</a></li>
+                <li><a href="#paso-3" class="nav-link">3. Circuito LED</a></li>
+                <li><a href="#paso-4" class="nav-link">4. Contador Flip-Flop JK</a></li>
+                <li><a href="#paso-5" class="nav-link">5. Alarma Lógica</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <header class="hero">
+            <span class="badge">Ingeniería de Telecomunicaciones • Laboratorio Virtual</span>
+            <h1>Guía Práctica de Proteus Design Suite</h1>
+            <p>
+                Aprende desde cero cómo instalar Proteus, configurar tu entorno de trabajo en el módulo ISIS 
+                y simular circuitos electrónicos básicos, combinacionales y secuenciales digitales aplicados al análisis de señales.
+            </p>
+        </header>
+
+        <section id="paso-1" class="paso-card">
+            <h2>Paso 1: Descarga e instalación</h2>
+            
+            <h3>1.1 Descargar el instalador oficial</h3>
+            <p>
+                Ingresa al portal oficial de Labcenter Electronics y descarga la versión educativa o de demostración 
+                (<code>Proteus_8.x_Demo.exe</code>) compatible con Windows.
+            </p>
+
+            <h3>1.2 Ejecutar el asistente de instalación</h3>
+            <p>
+                Haz clic derecho sobre el instalador y selecciona <strong>Ejecutar como administrador</strong>. 
+                Acepta los términos de licencia y selecciona la instalación típica (<em>Typical</em>).
+            </p>
+
+            <h3>1.3 Configurar permisos de administrador</h3>
+            <p>
+                En el acceso directo del escritorio, abre <strong>Propiedades &gt; Compatibilidad</strong> y marca 
+                <em>Ejecutar este programa como administrador</em> para evitar errores al cargar las librerías de componentes.
+            </p>
+
+            <div class="imagen-box">
+                <img src="paso1.jpg" alt="Pantalla de descarga, instalación y ejecución como administrador de Proteus">
+                <p class="pie-imagen">Figura 1: Proceso de descarga, asistente Setup Wizard y permisos en Windows.</p>
+            </div>
+            <a href="#inicio" class="btn-arriba">↑ Volver al índice</a>
+        </section>
+
+        <section id="paso-2" class="paso-card">
+            <h2>Paso 2: Crear un proyecto y conocer el entorno</h2>
+
+            <h3>2.1 Iniciar el asistente New Project Wizard</h3>
+            <p>
+                Abre Proteus y haz clic en <strong>New Project</strong>. Asigna un nombre a tu práctica, elige una carpeta 
+                de destino y avanza con <strong>Next</strong> dejando la plantilla <code>DEFAULT</code> para esquemáticos.
+            </p>
+
+            <h3>2.2 Reconocer las herramientas principales</h3>
+            <p>
+                En la barra vertical izquierda encontrarás <strong>Component Mode</strong> (ícono del amplificador operacional) 
+                y <strong>Terminals Mode</strong>. En la esquina inferior izquierda se ubican los controles de simulación 
+                (<em>Play, Step, Pause, Stop</em>).
+            </p>
+
+            <div class="imagen-box">
+                <img src="paso2.jpg" alt="Asistente New Project Wizard en la pantalla de Proteus">
+                <p class="pie-imagen">Figura 2: Configuración de plantilla DEFAULT en el asistente de nuevo proyecto.</p>
+            </div>
+            <a href="#inicio" class="btn-arriba">↑ Volver al índice</a>
+        </section>
+
+        <section id="paso-3" class="paso-card">
+            <h2>Paso 3: Ejemplo 1 — Circuito básico con LED e interruptor</h2>
+
+            <h3>3.1 Buscar componentes en la librería</h3>
+            <p>
+                Presiona el botón <strong>P</strong> (<em>Pick Devices</em>) y agrega los siguientes dispositivos a tu lista:
+            </p>
+            <ul class="lista-componentes">
+                <li><code>BATTERY</code> — Fuente de alimentación DC (configurada a <strong>9V</strong>).</li>
+                <li><code>BUTTON</code> — Pulsador interactivo normalmente abierto.</li>
+                <li><code>RES</code> — Resistencia limitadora (configurada a <strong>330</strong> ohmios).</li>
+                <li><code>LED-GREEN</code> — Diodo emisor de luz verde animado.</li>
+            </ul>
+
+            <h3>3.2 Cablear, añadir tierra (GND) y simular</h3>
+            <p>
+                Une los componentes en serie formando un lazo cerrado y conecta una terminal <strong>GROUND</strong> al polo negativo. 
+                Finalmente, presiona <strong>Play</strong> en la esquina inferior izquierda y haz clic sobre el pulsador para encender el LED.
+            </p>
+
+            <div class="imagen-box">
+                <img src="paso3.jpg" alt="Simulación de circuito con batería, pulsador, resistencia y LED verde en Proteus">
+                <p class="pie-imagen">Figura 3: Circuito cableado con conexión a tierra (GROUND) y simulación activa.</p>
+            </div>
+            <a href="#inicio" class="btn-arriba">↑ Volver al índice</a>
+        </section>
+
+        <section id="paso-4" class="paso-card">
+            <h2>Paso 4: Ejemplo 2 — Contador Binario Asíncrono de 4 bits con Flip-Flop JK</h2>
+            <p>
+                Los contadores digitales son fundamentales en telecomunicaciones para dividir frecuencias y sincronizar tramas de datos. 
+                En este ejemplo armaremos un contador ascendente de <strong>0 a 15 (MOD-16)</strong> utilizando Flip-Flops JK en modo conmutación (<em>Toggle</em>).
+            </p>
+
+            <h3>4.1 Componentes necesarios en Proteus</h3>
+            <p>Abre el buscador de componentes (tecla <strong>P</strong>) y añade los siguientes elementos:</p>
+            <ul class="lista-componentes">
+                <li><code>74LS76</code> — Circuito integrado con doble Flip-Flop JK con disparador por flanco de bajada (necesitarás 2 integrados para tener 4 Flip-Flops).</li>
+                <li><code>CLOCK</code> — Generador de pulsos de reloj digital (lo encontrarás en <em>Generator Mode</em> en la barra izquierda).</li>
+                <li><code>LOGICSTATE</code> — Interruptor lógico interactivo (para fijar el estado alto <strong>1</strong> en las entradas J y K).</li>
+                <li><code>LOGICPROBE (BIG)</code> — Sonda lógica visual para observar los bits de salida (<strong>Q0, Q1, Q2, Q3</strong>).</li>
+            </ul>
+
+            <h3>4.2 Guía de conexión paso a paso</h3>
+            <ol class="lista-pasos">
+                <li>Coloca los <strong>4 Flip-Flops JK</strong> en fila de izquierda a derecha (FF0, FF1, FF2 y FF3).</li>
+                <li>Coloca un <code>LOGICSTATE</code> en estado <strong>1</strong> y conéctalo a todas las entradas <strong>J</strong>, <strong>K</strong>, <strong>PRE</strong> (Preset) y <strong>CLR</strong> (Clear) de los 4 Flip-Flops para habilitar el modo <em>Toggle</em> (basculación).</li>
+                <li>Conecta el generador <code>CLOCK</code> (configurado a <strong>1 Hz</strong> o <strong>2 Hz</strong>) al pin de reloj (<strong>CLK</strong>) del primer Flip-Flop (<strong>FF0</strong>).</li>
+                <li>Para hacer el conteo en cascada (asíncrono), conecta la salida <strong>Q</strong> de cada Flip-Flop hacia la entrada <strong>CLK</strong> del siguiente Flip-Flop.</li>
+                <li>Conecta una sonda <code>LOGICPROBE (BIG)</code> a cada salida <strong>Q</strong> para leer el número binario en tiempo real.</li>
+            </ol>
+
+            <table class="tabla-conexiones">
+                <thead>
+                    <tr>
+                        <th>Etapa</th>
+                        <th>Entrada de Reloj (CLK)</th>
+                        <th>Salida del Bit</th>
+                        <th>Peso Binario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flip-Flop 0 (LSB)</td>
+                        <td>Señal externa <code>CLOCK</code></td>
+                        <td><strong>Q0</strong></td>
+                        <td>2<sup>0</sup> = 1</td>
+                    </tr>
+                    <tr>
+                        <td>Flip-Flop 1</td>
+                        <td>Conectado a la salida <strong>Q0</strong></td>
+                        <td><strong>Q1</strong></td>
+                        <td>2<sup>1</sup> = 2</td>
+                    </tr>
+                    <tr>
+                        <td>Flip-Flop 2</td>
+                        <td>Conectado a la salida <strong>Q1</strong></td>
+                        <td><strong>Q2</strong></td>
+                        <td>2<sup>2</sup> = 4</td>
+                    </tr>
+                    <tr>
+                        <td>Flip-Flop 3 (MSB)</td>
+                        <td>Conectado a la salida <strong>Q2</strong></td>
+                        <td><strong>Q3</strong></td>
+                        <td>2<sup>3</sup> = 8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="nota-tecnica">
+                <strong>Tip de simulación:</strong> Al presionar <strong>Play</strong>, verás cómo las sondas lógicas cambian automáticamente desde <code>0000</code> (0) hasta <code>1111</code> (15) con cada pulso del reloj. Si deseas conectar un display de 7 segmentos directamente, puedes unir las salidas Q0–Q3 a un decodificador <code>74LS47</code> o usar un <code>7SEG-BCD</code>.
+            </div>
+
+            <div class="imagen-box">
+                <img src="paso4.jpg" alt="Esquemático de contador binario de 4 bits con Flip-Flops JK 74LS76 en Proteus">
+                <p class="pie-imagen">Figura 4: Contador asíncrono MOD-16 implementado con cuatro Flip-Flops JK (74LS76) y sondas lógicas.</p>
+            </div>
+            <a href="#inicio" class="btn-arriba">↑ Volver al índice</a>
+        </section>
+
+        <section id="paso-5" class="paso-card">
+            <h2>Paso 5: Ejemplo 3 — Alarma de Seguridad con Compuertas Lógicas</h2>
+            <p>
+                Los sistemas combinacionales permiten tomar decisiones lógicas instantáneas a partir de sensores. 
+                En este circuito diseñaremos una alarma domiciliaria que solo se activa si el sistema está <strong>armado (A = 1)</strong> 
+                y se abre la <strong>puerta (P = 1)</strong> o la <strong>ventana (V = 1)</strong>.
+            </p>
+
+            <div class="formula-box">
+                Ecuación Lógica: &nbsp; Alarma (S) = A · (P + V)
+            </div>
+
+            <h3>5.1 Componentes necesarios en Proteus</h3>
+            <p>Abre el buscador de componentes (tecla <strong>P</strong>) y añade los siguientes elementos:</p>
+            <ul class="lista-componentes">
+                <li><code>7432</code> — Compuerta lógica <strong>OR</strong> de 2 entradas (detecta si se abre la puerta <em>o</em> la ventana).</li>
+                <li><code>7408</code> — Compuerta lógica <strong>AND</strong> de 2 entradas (valida que la alarma esté armada <em>y</em> exista intrusión).</li>
+                <li><code>LOGICSTATE</code> — 3 interruptores lógicos para simular el interruptor principal (<strong>ARMADO</strong>) y los sensores (<strong>PUERTA</strong>, <strong>VENTANA</strong>).</li>
+                <li><code>LED-RED</code> y <code>RES</code> (<strong>220</strong> ohmios) — Indicador visual de alerta.</li>
+                <li><code>BUZZER</code> — Zumbador sonoro activo (configura su voltaje de operación a <strong>5V</strong> haciendo doble clic sobre él).</li>
+            </ul>
+
+            <h3>5.2 Guía de conexión paso a paso</h3>
+            <ol class="lista-pasos">
+                <li>Coloca los tres <code>LOGICSTATE</code> a la izquierda en columna y etiquétalos como <strong>ARMADO (A)</strong>, <strong>PUERTA (P)</strong> y <strong>VENTANA (V)</strong>.</li>
+                <li>Conecta las salidas de <strong>PUERTA</strong> y <strong>VENTANA</strong> a las dos entradas de la compuerta <strong>OR (<code>7432</code>)</strong>.</li>
+                <li>Conecta la salida de la compuerta <strong>OR</strong> a una entrada de la compuerta <strong>AND (<code>7408</code>)</strong>, y conecta el interruptor <strong>ARMADO</strong> a la otra entrada de la <strong>AND</strong>.</li>
+                <li>A la salida de la compuerta <strong>AND</strong>, conecta en paralelo la resistencia de <strong>220</strong> ohmios en serie con el <code>LED-RED</code> y el <code>BUZZER</code>, cerrando ambos hacia una terminal <strong>GROUND</strong>.</li>
+            </ol>
+
+            <table class="tabla-conexiones">
+                <thead>
+                    <tr>
+                        <th>Armado (A)</th>
+                        <th>Puerta (P)</th>
+                        <th>Ventana (V)</th>
+                        <th>Salida Alarma (S)</th>
+                        <th>Estado del Sistema</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>0 / 1</td>
+                        <td>0 / 1</td>
+                        <td><strong>0</strong></td>
+                        <td>Desactivada (Modo día: puedes abrir sin que suene)</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>0</strong></td>
+                        <td>Armada y segura (Todo cerrado)</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                        <td><strong>¡ALERTA!</strong> Intrusión por puerta</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                        <td><strong>¡ALERTA!</strong> Intrusión por ventana</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                        <td><strong>¡ALERTA!</strong> Intrusión en ambos accesos</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="nota-tecnica">
+                <strong>Tip de simulación:</strong> Presiona <strong>Play</strong> y prueba cambiando los estados lógicos de <code>0</code> a <code>1</code>. Verás que mientras <strong>ARMADO</strong> esté en <code>0</code>, el LED rojo permanece apagado aunque actives los sensores; al poner <strong>ARMADO</strong> en <code>1</code> y activar cualquiera de los dos sensores, el LED encenderá y el buzzer se activará.
+            </div>
+
+            <div class="imagen-box">
+                <img src="paso5.jpg" alt="Esquemático de alarma digital con compuertas lógicas OR 7432 y AND 7408 en Proteus">
+                <p class="pie-imagen">Figura 5: Sistema de alarma combinacional utilizando compuertas OR (7432), AND (7408), LED rojo y buzzer.</p>
+            </div>
+            <a href="#inicio" class="btn-arriba">↑ Volver al índice</a>
+        </section>
+    </main>
+
+    <footer>
+        Material académico de apoyo • Ingeniería de Telecomunicaciones
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
