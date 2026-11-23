@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll(".nav-link");
     const secciones = document.querySelectorAll("header, section.paso-card");
 
-    // Desplazamiento suave al hacer clic en los enlaces del índice
     links.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Resaltado dinámico de la sección actual mientras se hace scroll
     window.addEventListener("scroll", () => {
         let seccionActual = "inicio";
 
